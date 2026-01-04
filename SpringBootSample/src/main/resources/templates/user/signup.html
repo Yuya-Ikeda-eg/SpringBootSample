@@ -16,7 +16,7 @@
 		<h1 class="text-center" th:text="#{user.signup.title}"></h1>
 		<!-- ユーザーID -->
 		<div class="form-group">
-			<label for="userId" th:text="#{user.Id}"></label>
+			<label for="userId" th:text="#{userId}"></label>
 			<input type="text" class="form-control" th:field="*{userId}" th:errorclass="is-invalid"/>
 			<div class="invalid-feedback" th:errors="*{userId}"></div>
 		</div>
