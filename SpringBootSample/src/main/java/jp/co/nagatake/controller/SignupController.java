@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.nagatake.application.service.UserApplicationService;
+import jp.co.nagatake.form.GroupOrder;
 import jp.co.nagatake.form.SignupForm;
 import lombok.extern.slf4j.Slf4j;
 
@@ -38,7 +39,7 @@ public class SignupController {
 	
 	/** ユーザ登録処理 */
 	@PostMapping("/signup")
-	public String postSignup(Model model, Locale locale, @ModelAttribute @Validated SignupForm form, BindingResult bindingResult) {
+	public String postSignup(Model model, Locale locale, @ModelAttribute @Validated(GroupOrder.class) SignupForm form, BindingResult bindingResult) {
 		
 		// 入力チェック結果
 		if(bindingResult.hasErrors()) {
