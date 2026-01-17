@@ -5,6 +5,7 @@
 
 <mapper namespace="jp.co.nagatake.repository.UserMapper">
 
+  <!-- ユーザー1件登録 -->
   <insert id="insertOne"
           parameterType="jp.co.nagatake.domain.user.model.MUser">
     insert into m_user(
@@ -28,5 +29,14 @@
         , #{role}
     )
   </insert>
+  
+  <!-- ユーザー複数件取得 -->
+  <select id="findMany"
+  		  resultType="MUser">
+	select
+		*
+	from
+		m_user  
+  </select>  
 
 </mapper>
