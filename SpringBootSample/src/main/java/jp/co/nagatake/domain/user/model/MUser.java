@@ -23,4 +23,6 @@ public class MUser {
 	
 	private String role;
 	
+	private Department department;
+	
 }
