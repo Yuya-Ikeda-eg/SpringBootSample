@@ -1,8 +1,10 @@
 package jp.co.nagatake.form;
 
 import java.util.Date;
+import java.util.List;
 
 import jp.co.nagatake.domain.user.model.Department;
+import jp.co.nagatake.domain.user.model.Salary;
 import lombok.Data;
 
 @Data
@@ -14,4 +16,5 @@ public class UserDetailForm {
 	private Integer age;
 	private Integer gender;
 	private Department department;
+	private List<Salary> salaryList;
 }
