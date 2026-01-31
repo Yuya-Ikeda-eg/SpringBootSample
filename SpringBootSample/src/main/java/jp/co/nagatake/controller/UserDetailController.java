@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jp.co.nagatake.domain.user.model.MUser;
 import jp.co.nagatake.domain.user.service.UserService;
 import jp.co.nagatake.form.UserDetailForm;
+import lombok.extern.slf4j.Slf4j;
 
 
 
 
 @Controller
 @RequestMapping("/user")
+@Slf4j
 public class UserDetailController {
 	
 	@Autowired
@@ -48,8 +50,12 @@ public class UserDetailController {
 	@PostMapping(value = "/detail", params = "update")
 	public String updateUser(UserDetailForm form, Model model) {
 		
-		// ユーザーを更新
-		userService.updateUserOne(form.getUserId(), form.getPassword(), form.getUserName());
+		try {
+			// ユーザーを更新
+			userService.updateUserOne(form.getUserId(), form.getPassword(), form.getUserName());			
+		} catch(Exception e) {
+			log.error("ユーザー更新でエラー", e);
+		}
 		
 		return "redirect:/user/list";
 	}

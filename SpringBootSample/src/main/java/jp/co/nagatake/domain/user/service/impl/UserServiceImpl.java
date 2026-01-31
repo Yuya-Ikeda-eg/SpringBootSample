@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import jp.co.nagatake.domain.user.model.MUser;
 import jp.co.nagatake.domain.user.service.UserService;
@@ -36,9 +37,11 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	/* ユーザー更新(1件) */
+	@Transactional
 	@Override
 	public void updateUserOne(String userId, String password, String userName) {
 		mapper.updateOne(userId, password, userName);
+		
 	}
 	
 	/* ユーザー削除(1件) */
