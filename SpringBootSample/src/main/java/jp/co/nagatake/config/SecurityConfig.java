@@ -33,7 +33,8 @@ public class SecurityConfig {
 					"/js/**", // セキュリティ対象外
 					"/h2-console/**", // セキュリティ対象外
 					"/login", // URL直打ちOK
-					"/user/signup" // URL直打ちOK
+					"/user/signup", // URL直打ちOK
+					"/user/signup/rest" // URL直打ちOK
 				).permitAll()
 				
 				// それ以外は認証必須
